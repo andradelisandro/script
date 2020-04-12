@@ -8,7 +8,7 @@
 #          false:  Entrar en mode de debug
 # Fecha: 15/01/2020
 
-if [ "${DEBUG_MODE}" == "true" ]; then
+if $3 then
     set -o xtrace
 fi
 

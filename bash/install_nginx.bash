@@ -12,7 +12,7 @@
 # Fecha: 10/01/2020
 
 # Script trace mode
-if [ "${DEBUG_MODE}" == "true" ]; then
+if $3 then
     set -o xtrace
 fi
 
