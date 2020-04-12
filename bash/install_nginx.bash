@@ -12,7 +12,7 @@
 # Fecha: 10/01/2020
 
 # Script trace mode
-if $3; then
+if $4; then
     set -o xtrace
 fi
 
@@ -45,7 +45,7 @@ sudo cp /usr/share/nginx/html/index.html $ROOT_WEBSERVER$PATH_FOLDER"/"
 
 sudo sed -i 's/example.com.access.log/'$PATH_FOLDER'.access.log/g' $PATH_NGINX$PATH_NGINX_SITE$NGINX_SITE_CONFIG
 sudo sed -i 's/example.com.error.log/'$PATH_FOLDER'.error.log/g' $PATH_NGINX$PATH_NGINX_SITE$NGINX_SITE_CONFIG
-sudo sed -i 's~/var/www/example.com;/~'$ROOT_WEBSERVER$PATH_FOLDER'~g' $PATH_NGINX$PATH_NGINX_SITE$NGINX_SITE_CONFIG
+sudo sed -i 's~/var/www/example.com~'$ROOT_WEBSERVER$PATH_FOLDER'~g' $PATH_NGINX$PATH_NGINX_SITE$NGINX_SITE_CONFIG
 sudo sed -i 's~http://example.com;~'$SERVER_NAME'~g' $PATH_NGINX$PATH_NGINX_SITE$NGINX_SITE_CONFIG
 
 sudo systemctl restart nginx
