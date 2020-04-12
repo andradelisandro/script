@@ -1,14 +1,18 @@
 #!/bin/bash
 ############################################
 # @Author: AndradeLisandro 
-# @Run: sudo ./install_dotnet2.1_and_service.bash example.com example.dll
+# @Run: sudo ./install_dotnet2.1_and_service.bash example.com example.dll false
 # @Description: Este script hace la instalacion de netcore 2.1 y crea un 
 #               servicio de netcore
 # @Variable:
 #          example.com: Directorio origen de la APP
 #          example.dll: Nombre de la DLL del proyecto  
+#          false:  Entrar en mode de debug
 # Fecha: 20/01/2020
 
+if [ "${DEBUG_MODE}" == "true" ]; then
+    set -o xtrace
+fi
 PATH_CONF="/etc/systemd/system/"
 FILE_CONF="netcoreservice.service"
 ROOT_WEBSERVER="/var/www/"

@@ -1,10 +1,16 @@
 #!/bin/bash
 ############################################
 # @Autor: AndradeLisandro 
-# Run: sudo ./backup_mysql.bash
+# Run: sudo ./backup_mysql.bash false
 # Descripcion:  Este script respaldo toda las BD 
 #               de mysql creando un arbol de directorio con el nombre de la base
+# @Variable:
+#          false:  Entrar en mode de debug
 # Fecha: 15/01/2020
+
+if [ "${DEBUG_MODE}" == "true" ]; then
+    set -o xtrace
+fi
 
 DIA="$(date +"%d-%m-%Y")"
 USER="root"
