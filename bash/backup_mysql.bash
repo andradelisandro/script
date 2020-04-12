@@ -8,7 +8,7 @@
 #          false:  Entrar en mode de debug
 # Fecha: 15/01/2020
 
-if $3 then
+if $3; then
     set -o xtrace
 fi
 

@@ -10,7 +10,7 @@
 #          false:  Entrar en mode de debug
 # Fecha: 20/01/2020
 
-if $3 then
+if $3; then
     set -o xtrace
 fi
 PATH_CONF="/etc/systemd/system/"
