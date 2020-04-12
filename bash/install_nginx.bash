@@ -1,12 +1,13 @@
 #!/bin/bash
 ############################################
 # @Author: AndradeLisandro 
-# @Run: sudo ./install_nginx.bash http://example.com example.com
+# @Run: sudo ./install_nginx.bash http://example.com example.com debian
 # @Description: Este script hace la instalacion de nginx y crea 
 #               el directorio root folder y actualiza las conf de nginx
 # @Variable:
 #          http://example.com: server name del nginx.conf
 #          example.com: nombre del directorio de la APP 
+#          debian: Sistema donde se va instalar el nginx
 # Fecha: 10/01/2020
 
 DATE="$(date +"%d-%m-%Y")"
@@ -20,7 +21,7 @@ ROOT_WEBSERVER="/var/www/"
 
 sudo apt update
 sudo apt install -y curl wget gnupg2 ca-certificates lsb-release
-sudo echo "deb http://nginx.org/packages/debian `lsb_release -cs` nginx" \
+sudo echo "deb http://nginx.org/packages/$3 `lsb_release -cs` nginx" \
     | sudo tee /etc/apt/sources.list.d/nginx.list
 curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
 sudo apt-key fingerprint ABF5BD827BD9BF62
