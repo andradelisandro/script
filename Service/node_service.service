@@ -1,0 +1,25 @@
+############################################
+# @Autor: AndradeLisandro 
+# Descripcion:  Creacion de Servicio node
+#               Agregar el path donde esta el server.js
+#               Para este caso se utilizo NVM ubicar la ruta del Node y sobreescribirla con el archivo
+# Nota: El servicio se habilita con los siguiente comandos.
+#       * sudo systemctl enable node_service.service
+#       * sudo systemctl start node_service.service
+#       * sudo systemctl status node_service.service
+# Fecha:
+
+[Unit]
+Description=Node
+
+[Service]
+WorkingDirectory=/var/www/domino.com
+ExecStart=/home/usuario/.nvm/versions/node/v12.16.1/bin/node /var/www/dominio.com/server.js
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=nodejs
+User=root
+
+[Install]
+WantedBy=multi-user.target

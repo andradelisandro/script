@@ -1,0 +1,22 @@
+############################################
+# @Autor: AndradeLisandro 
+# Descripcion:  Creacion de Servicio para correr un .jar
+#               Este servicio dispara un bash ubicar en la carpeta de bash/service_java_bash
+# Nota: El servicio se habilita con los siguiente comandos.
+#       * sudo systemctl enable java_service_stage.service
+#       * sudo systemctl start java_service_stage.service
+#       * sudo systemctl status java_service_stage.service
+# Fecha:
+
+[Unit]
+Description=Java Service
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/service_java.bash start
+ExecStop=/usr/local/bin/service_java.bash stop
+ExecReload=/usr/local/bin/service_java.bash reload
+
+[Install]
+WantedBy=multi-user.target
